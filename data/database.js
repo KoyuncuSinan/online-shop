@@ -1,4 +1,3 @@
-const { get } = require("http");
 const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
 
@@ -13,7 +12,7 @@ async function connectToDatabase(){
 
 function getDb(){
     if(!database){
-        throw {message: "You must connect first!"};
+        throw new Error("You must connect first!");
     
     }
     return database;
@@ -22,4 +21,4 @@ function getDb(){
 module.exports = {
     connectToDatabase:connectToDatabase,
     getDb:getDb,
-}
+};
